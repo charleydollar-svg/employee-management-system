@@ -37,8 +37,8 @@ class company {
     constructor() {
         this.employees = employees;
     }
-    addEmployee(emp) {
-        this.employees.push(emp);
+    addEmployee(employee) {
+        this.employees.push(employee);
     }
     listEmployees() {
         this.listEmployees.employees.forEach(emp => console.log(emp.describe()));
