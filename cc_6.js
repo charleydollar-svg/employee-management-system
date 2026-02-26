@@ -1,11 +1,12 @@
 // Employee properties
 class Employee {
-    constructor(name, department,) {
+    constructor(name, department, level="Employee") {
         this.name = name;
         this.department = department;
+        this.level = level;
     }
     describe() {
-        return `${this.name} works in the ${this.department} department.`;
+        return `${this.name} | ${this.level} | ${this.department} department.`;
     }
 }
 
@@ -18,7 +19,7 @@ class Manager extends Employee {
         if (this.teamSize >= 10) this.level = "Executive";
     }
     describe() {
-        return `${this.name} | ${this.level} | ${this.teamSize} works in the ${this.department} department.`;
+        return `${this.name} | ${this.level} | ${this.teamSize} Employee(s) in the ${this.department} department.`;
     }
 }
 
@@ -28,7 +29,7 @@ const employees = [
     new Manager("Bob", "Marketing", "Manager", 12),
     new Employee("Charlie", "Sales"),
     new Employee("David", "HR"),
-    new Employee("Eve", "Finance")
+    new Employee("Eve", "Finance"),
 ]
 
 //Company
@@ -36,11 +37,15 @@ class company {
     constructor() {
         this.employees = employees;
     }
+    addEmployee(emp) {
+        this.employees.push(emp);
+    }
+    listEmployees() {
+        this.listEmployees.employees.forEach(emp => console.log(emp.describe()));
+    }
 }
 
-
-const myCompany = new company();
-
-for (let emp of myCompany.employees) {
-    console.log(emp.describe());
+//instantiate company
+for (let employee of employees) {
+    console.log(employee.describe());
 }
